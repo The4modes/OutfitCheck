@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Styles/login-style.css">
+  <title>OutfitCheck</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="./jsript/script.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".header-container").on("click", function(){
+        window.location = "index.php"
+      })
+
+      $("#signup-form-container").on("submit", function(submit){
+        submit.preventDefault();
+
+        var username = $("#username").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+
+        if(validateReg()){
+          $.post("./phpfunctions/signup.php", {
+          username: username,
+          email: email,
+          password: password
+        }, function(data, status){
+          if(data == "success"){
+            window.location = "inlogg.html";
+          }
+          else{
+            $(".information").html(data);
+          }
+        });
+        }
+      });
+
+      $("#url").on("click", function(){
+        window.location = "inlogg.html";
+      })
+    });
+  </script>
+</head>
+<body>
+  <div class="mainpage-container">
+    <div class="header-container">
+      <header class="outfitcheck">OutfitCheck</header>
+    </div>
+    <div class="login-container">
+      <form action="" method="post" name="signup-form-container" id="signup-form-container">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <input type="submit" name="login" placeholder="login" required>
+        <div class="switchlocation">
+          <label type="url" id="url">Login</label>
+        </div>
+        <div class="information"></div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
