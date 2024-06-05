@@ -1,12 +1,11 @@
-School project that the assignment was to make a website.
 
-A social network web application where users could upload images of their outfits for the day. 
-The images are connected to a specific location and shows what temperature it was when the picture was uploaded.
+The resultant creation is a social network web application tailored to facilitate user uploads of daily outfit images. These images are associated with distinct geographical locations and showcase the corresponding ambient temperature at the time of upload.
 
-Functionality:
-- Creating accounts
-- Changing profile pictures
-- Uploading images and adding captions
+Key functionality includes:
+
+- Account creation
+- Profile picture customization
+- Image upload with captions
 - Adding friends
-- Viewing different feeds, such as your friends feed or a specific location
-- Autodetecting what places you are searching for and storing all of those places information for future use.
+- Access to various feeds, such as "Friends" or location-specific feeds
+- Automated identification of user-searched locations, with storage of relevant information for future reference.
